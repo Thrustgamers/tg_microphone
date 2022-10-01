@@ -9,7 +9,7 @@ This script is inspired and uses small bits of code from ps-microphone so credit
 Just drag and drop
 
 #### Dependencies
-Ox_lib (https://github.com/overextended/ox_lib)
+Ox_lib (https://github.com/overextended/ox_lib),
 pma-voice
 
 ##### Credits
