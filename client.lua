@@ -2,10 +2,12 @@ local object = "v_ilev_fos_mic"
 local zones = {}
 local range = nil
 
+--As soon as the resource starts the creation of the zones will start
 AddEventHandler('onResourceStart', function(resourceName)
     createZones()
 end)
 
+--decides what raduis your voice will have 
 function range(context)
     if context == "small" then 
         range = 20
@@ -16,16 +18,17 @@ function range(context)
     end
 end
 
-
+--Inside Zone
 function inside()
     exports["pma-voice"]:overrideProximityRange(50, true)
 end
 
+--Exiting Zone
 function onExit()
     exports["pma-voice"]:clearProximityOverride()
 end
   
-
+--Zone Creation
 function createZones()
     CreateThread(function()
         for k, v in pairs(Config.Zones) do
@@ -39,6 +42,7 @@ function createZones()
     end)
 end
 
+--Thread
 CreateThread(function() 
     for k,v in pairs(Config.Zones) do
         if #(GetEntityCoords(PlayerPedId()) - vector3(v.coords.x, v.coords.y, v.coords.z)) < 150 then 
