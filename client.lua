@@ -20,7 +20,7 @@ end
 
 --Inside Zone
 function inside()
-    exports["pma-voice"]:overrideProximityRange(50, true)
+    exports["pma-voice"]:overrideProximityRange(range, true)
 end
 
 --Exiting Zone
